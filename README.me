@@ -1,49 +1,49 @@
-# ImageExpansion
-__画像拡張用アプリケーション__　
+#ImageExpansion  
+__画像拡張用アプリケーション__  　
+  
+---  
+#Description  
+画像からオブジェクトを切り取り、背景画像をランダムに選んで画像を複数作成するアプリです。  
+切り取る色の範囲を指定してオブジェクトを切り出します。そのためオブジェクトと背景の色が似ていると使いづらいと思います。  
+画像は一度に600枚程度作成できます。PCのスペックによって変わると思いますが、初期値の場合は600枚が最高になっています。  
+変更したい場合は　 imageexpansion.cpp 292行目 qspin3->setValue(600);の値を変更してください。  
+アプリ実行後にいちいちが画像を選びたくない場合は　imageexpansion.cpp　のグローバル変数を変更してください。  
+背景切り取りをしたい画像の変更は imageexpansion.cpp 5行目 IMAGE_FILE_PATH　と　6行目 IMAGE_FULLPATH_AND_NAME　を変更してください。  
+背景の画像のpathを変更したい場合は imageexpansion.cpp 8行目 BACKGROUND_IMAGE_PATH　を変更してください。  
+背景に白画像を使っている場所があります。そのパスを変更してください。whiteback~.pngのところです。  
+  
+---  
+#Requirement  
+Qt(version 4.8以上)  
+OpenCV2(version 3.3.1-dev)  
+たくさんの背景画像が入っているディレクトリ  
+切り取りたいオブジェクトが写っている画像の入っているディレクトリ  
+  
+---  
+#Installation  
+*install Qt(まだQtを持っていない方)*  
+<https://wiki.qt.io/Install_Qt_5_on_Ubuntu>  
+*install opencv(まだopencvを持っていない方)*  
+<https://qiita.com/nakasuke_/items/51664807bdd7794db0da>  
+*install ImageExpansion*  
+$ git clone https://github.com/iwasakiRRR/ImageExpansion.git  
+$ cd ImageExpansion  
+$ qmake -project  
+$ qmake  
+  
+生成されたMakefileにはopencvが使えるように書かれていないため以下の作業が必要だと考えられます。  
+INCPATH に　opencv2がある場所を追加してください。 ex)INCPATH = -I/usr/local/include/opencv2.  
+LIBS　に　-L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc を追加してください。  
+  
+$ make  
+  
+g++　関係でコンパイルできない場合は以下の方法を試してください。  
+g++に-std=C++11もしくは-std=gnu++11のオプションをつける。  
+CXXFLAGS = -std=gnu++11 -m64 -pipe ~~~~~~~ 　このように,-std=C++11もしくは-std=gnu++11を追加してください。  
 
----
-# Description
-画像からオブジェクトを切り取り、背景画像をランダムに選んで画像を複数作成するアプリです。
-切り取る色の範囲を指定してオブジェクトを切り出します。そのためオブジェクトと背景の色が似ていると使いづらいと思います。
-画像は一度に600枚程度作成できます。PCのスペックによって変わると思いますが、初期値の場合は600枚が最高になっています。
-変更したい場合は　 imageexpansion.cpp 292行目 qspin3->setValue(600);の値を変更してください。
-アプリ実行後にいちいちが画像を選びたくない場合は　imageexpansion.cpp　のグローバル変数を変更してください。
-背景切り取りをしたい画像の変更は imageexpansion.cpp 5行目 IMAGE_FILE_PATH　と　6行目 IMAGE_FULLPATH_AND_NAME　を変更してください。
-背景の画像のpathを変更したい場合は imageexpansion.cpp 8行目 BACKGROUND_IMAGE_PATH　を変更してください。
-背景に白画像を使っている場所があります。そのパスを変更してください。whiteback~.pngのところです。
-
----
-# Requirement
-Qt(version 4.8以上)
-OpenCV2(version 3.3.1-dev)
-たくさんの背景画像が入っているディレクトリ
-切り取りたいオブジェクトが写っている画像の入っているディレクトリ
-
----
-# Installation
-*install Qt(まだQtを持っていない方)*
-<https://wiki.qt.io/Install_Qt_5_on_Ubuntu>
-*install opencv(まだopencvを持っていない方)*
-<https://qiita.com/nakasuke_/items/51664807bdd7794db0da>
-*install ImageExpansion*
-$ git clone https://github.com/iwasakiRRR/ImageExpansion.git
-$ cd ImageExpansion
-$ qmake -project
-$ qmake
-
-生成されたMakefileにはopencvが使えるように書かれていないため以下の作業が必要だと考えられます。
-INCPATH に　opencv2がある場所を追加してください。 ex)INCPATH = -I/usr/local/include/opencv2.
-LIBS　に　-L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc を追加してください。
-
-$ make
-
-g++　関係でコンパイルできない場合は以下の方法を試してください。
-g++に-std=C++11もしくは-std=gnu++11のオプションをつける。
-CXXFLAGS = -std=gnu++11 -m64 -pipe ~~~~~~~ 　このように,-std=C++11もしくは-std=gnu++11を追加してください。
-
----
-# Author
-Tatsuhito Makino
-Ryo Iwasaki
+---  
+#Author  
+Tatsuhito Makino  
+Ryo Iwasaki  
 
 ---
